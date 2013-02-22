@@ -7,47 +7,55 @@
 # every ten prime numbers in a row for the first thousand primes
 
 # main
-    
+from math import sqrt
+
 # define function
 def is_prime(i):
-    for divisor in range(i-1, 1, -1): # decreases divisor by 1 after every loop until 2
-        if i % divisor == 0: # checks if divisor is a factor of integer
-            prime = False 
-        else:
-            prime = True
-    return (prime)
-    print (prime)
+    """ function to determine whether an integer is a prime number or not"""
+    # solve easiest case
+    if i == 1:
+        return False
+    for divisor in range (2, int(sqrt(i)+1)):
+        # checks if divisor is a factor of integer
+        if i % divisor == 0: 
+            return False
+    # if no divisors are found, i is a prime number
+    return True
 
-    
-# loop one hundred times
-for x in range(0, 100):
-    # initialise variable to store prime numbers in a row
-    row = 0
-    # loop 10 times
-    for find in range(0, 10):
-        i = 2
-        while is_prime(i) == False:
-            i = i + 1
-            if is_prime(i): # if prime is True
-                row = i + "     " + row
-            
-            print (row)
+# initialise starting point of search
+number = 2
+# initialise variable to store number of primes found
+total = 0
+# initialise an empty list
+primes = []
+# find 1000 prime numbers, when 1000 primes are found, loop is broken
+while total <= 1000:
+    # if number is a prime, True is returned
+    if is_prime(number) == True:
         
+        # add number to list
+        # format each number to take equal amount of space, 5 columns
+        primes.append("{0:<5}".format(number)) 
+        total = total + 1 # keeps track of number of primes found
+    number = number + 1 # increase value of number by 1
 
-# loop for odd numbers from 1 to 19
-for a in range(1, 20, +2):
-    # generate values for i and corresponding value of the sum of series
-    m_odd_series(a)
+# display heading
+print("List of first 1000 prime numbers: ")
+# loop 100 times
+# increase value of n by 10, moves on to next row of numbers
+for n in range(0, 1000, +10): # where n is the position of prime numbers in list
+    print(primes[n], primes[n+1], primes[n+2], primes[n+3], primes[n+4], primes[n+5], primes[n+6], primes[n+7], primes[n+8], primes[n+9])
     
 # loop program
 loop = True
 while loop:
     # prompt and get integer from user
-    integer = int(input("Please enter an integer: "))
-    # display heading
-    print ("{0} {1:>12}".format("i", "m(i)"))
-    # run function
-    m_odd_series(integer)
+    integer = int(input("\nPlease enter an integer to check if it is a prime number: "))
+    # run function and display result
+    if is_prime(integer) == True:
+        print(str(integer) + " is a prime number!")
+    else:
+        print (str(integer) + " is not a prime number!")
     # prompt for user to continue
     cont = input("\nPress enter to continue, type end to exit: ")
     if cont == "end":
