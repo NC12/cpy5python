@@ -10,7 +10,7 @@
 # define function
 def gcd(m,n):
     """ Function to find the greatest common divisior between two positive integers """
-    # check if n1 or n2 are zero
+    # check if m or n are zero
     if m == 0 or n == 0:
         print ("Error! This is not a non-zero integer!")
             
@@ -23,7 +23,7 @@ def gcd(m,n):
 
     # loop till greatest common divisor is found
     for x in range (smaller, 0, -1):
-        if m % x == 0 and n % x == 0: # check if x is a divisor of n1 and n2
+        if m % x == 0 and n % x == 0: # check if x is a divisor of m and n
             print ("Greatest common divisor of " + str(m) + " and " + str(n) + " is " + str(x))
             break # to end loop when greatest common divisor is found
         
