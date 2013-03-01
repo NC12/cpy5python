@@ -1,7 +1,7 @@
 # Filename: q1_sum_series1.py
 # Name: Ng Cheryl
 # Created: 20130225
-# Modified: 20130225
+# Modified: 20130301
 # Description: recursive function sum_series1(i) to compute series of fractions
     
 # define function
@@ -30,4 +30,9 @@ while loop:
     if cont == "end":
         loop = False # change value of loop to False to break loop
 
-
+##>>> Output
+##
+##Please enter an integer: 3
+##1.8333333333333333
+##
+##Press enter to continue, type end to exit: 
